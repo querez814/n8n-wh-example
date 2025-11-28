@@ -1,10 +1,8 @@
 <script lang="ts">
     import type { ProjectUpdate, WebhookResponse } from '$lib/types';
   
-    // Props using Svelte 5 syntax
     let { onSuccess }: { onSuccess?: () => void } = $props();
   
-    // Reactive state using $state rune
     let formData = $state<ProjectUpdate>({
       projectName: '',
       status: 'on-track',
@@ -17,7 +15,6 @@
     let submitMessage = $state('');
     let submitStatus = $state<'idle' | 'success' | 'error'>('idle');
   
-    // Derived state for form validation
     let isValid = $derived(
       formData.projectName.trim() !== '' && 
       formData.updateText.trim() !== ''
@@ -33,7 +30,7 @@
       submitStatus = 'idle';
   
       try {
-        const response = await fetch('/api/update', {
+        const response = await fetch('/api/webhook', {  
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
