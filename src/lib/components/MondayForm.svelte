@@ -344,6 +344,7 @@
                     <button
                       type="button"
                       onclick={() => removeTask(index)}
+                      aria-label="Remove task"
                       class="p-1 text-gray-500 hover:text-red-600 transition-colors"
                     >
                       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
