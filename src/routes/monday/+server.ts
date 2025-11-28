@@ -1,5 +1,5 @@
 import {json ,type RequestHandler } from '@sveltejs/kit';
-import { VITE_N8N_TEST_MONDAY_FORM } from '$env/static/private';
+import { VITE_N8N_TEST_MONDAY_FORM, VITE_N8N_PROD_MONDAY_FORM } from '$env/static/private';
 import type { MondayUpdate, WebhookResponse } from '$lib/types';
 
 
@@ -13,7 +13,7 @@ export const POST: RequestHandler = async ({request}) => {
                 {status: 400}
             )
         }
-        const webhookUrl = VITE_N8N_TEST_MONDAY_FORM
+        const webhookUrl = VITE_N8N_PROD_MONDAY_FORM
 
         if (!webhookUrl) {
             return json(
