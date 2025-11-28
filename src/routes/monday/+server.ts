@@ -7,7 +7,7 @@ export const POST: RequestHandler = async ({request}) => {
     try{
         const data: MondayUpdate = await request.json()
 
-        if (!data.employee || data.date || data.customer){
+        if (!data.employee || !data.date || !data.customer){
             return json(
                 {success: false, message: 'Missing required fields'} as WebhookResponse,
                 {status: 400}
