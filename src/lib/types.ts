@@ -5,6 +5,18 @@ export interface ProjectUpdate {
     blockers?: string;
     nextSteps?: string;
   }
+
+export interface MondayUpdate{
+  employee: string
+  date: string
+  hours: string | number
+  customer: string
+  billable_hours: string | number
+  description: string
+  service_item: string
+  notes: string
+  tasks_completed: string[]
+}
   
   export interface WebhookResponse {
     success: boolean;
